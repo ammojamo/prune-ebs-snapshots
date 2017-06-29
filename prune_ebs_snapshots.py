@@ -52,7 +52,7 @@ def main():
 		{ 'Name': 'status', 'Values': [ 'completed' ]}
 	]
 
-	snapshots = sorted([(s.start_time, s.id) for s in ec2.snapshots.filter(Filters=filters)])
+	snapshots = sorted([s for s in ec2.snapshots.filter(Filters=filters)], key=lambda s:s.start_time)
 
 	snapshots_to_keep = set()
 
@@ -80,9 +80,9 @@ def main():
 	if args.dry_run:
 		for s in snapshots:
 			if s in snapshots_to_keep:
-				print "KEEP %s" % s[1]
+				print "KEEP   %s - %s" % (s.id, s.start_time)
 			else:
-				print "DELETE %s" % s[1]
+				print "DELETE %s - %s" % (s.id, s.start_time)
 		if len(snapshots) == 0:
 			print "Nothing to do"
 		return
@@ -106,7 +106,7 @@ def start_of_year(date):
 def update_snapshots(snapshots_to_keep, snapshots, period_start, cutoff_date, now):
 	prev = None
 	for s in snapshots:
-		snapshot_time = s[0]
+		snapshot_time = s.start_time
 		curr = period_start(snapshot_time)
 		if curr != prev and (snapshot_time > cutoff_date or cutoff_date > now):
 			snapshots_to_keep.add(s)
