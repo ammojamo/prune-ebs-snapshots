@@ -1,6 +1,6 @@
 Prune EBS Snapshots based on a simple backup retention policy
 
-configuration
+Configuration
 -------------
 
 This script uses the boto3 library to communicate with AWS. You must configure your AWS credentials using one
@@ -8,7 +8,7 @@ of the methods supported by boto3. For full details see:
 
 https://boto3.readthedocs.io/en/latest/guide/configuration.html#guide-configuration
 
-The AWS user must have appropriate permissions. Here is an example AWS policy:
+The AWS user must have appropriate permissions. Here is an example AWS policy::
 
 	{
 		"Version": "2012-10-17",
@@ -27,14 +27,14 @@ The AWS user must have appropriate permissions. Here is an example AWS policy:
 		]
 	}
 
-usage
+Usage
 -----
 
 Always use the ``--help`` option to see the most up-to-date options available.
 
-Basic usage is:
+Basic usage is::
 
-	prune-ebs-snapshots [options] volume_id tag_name tag_value
+prune-ebs-snapshots [options] volume_id tag_name tag_value
 
 ``volume_id`` specifies which EBS volume to prune snapshots for
 
