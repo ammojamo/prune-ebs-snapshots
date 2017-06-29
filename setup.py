@@ -10,7 +10,7 @@ setup(
 	name='prune-ebs-snapshots',
 	description='Prune EBS snapshots based on a simple backup retention policy',
 	long_description=long_description,
-	version='0.4.0',
+	version='0.5.0',
 	url='https://github.com/ammojamo/prune-ebs-snapshots',
 	author='James Watmuff',
 	author_email='james.watmuff@gmail.com',
