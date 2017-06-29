@@ -10,7 +10,7 @@ setup(
 	name='prune-ebs-snapshots',
 	description='Prune EBS snapshots based on a simple backup retention policy',
 	long_description=long_description,
-	version='0.1.0',
+	version='0.2.0',
 	url='https://github.com/ammojamo/prune-ebs-snapshots',
 	author='James Watmuff',
 	author_email='james.watmuff@gmail.com',
@@ -21,6 +21,9 @@ setup(
 		'License :: OSI Approved :: Apache Software License',
 		'Programming Language :: Python :: 2',
 		'Programming Language :: Python :: 3'
+	],
+	py_modules=[
+		'prune_ebs_snapshots'
 	],
 	install_requires=[
 		'boto3>=1.4.4',
