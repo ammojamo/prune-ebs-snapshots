@@ -1,9 +1,15 @@
+import os, re, ast, email.utils, sys
 from setuptools import setup
+
+here = os.path.dirname(__file__)
+
+with open(os.path.join(here, 'README.rst')) as readme:
+	long_description = readme.read()
 
 setup(
 	name='prune-ebs-snapshots',
 	description='Prune EBS snapshots based on a simple backup retention policy',
-	#long_description=long_description,
+	long_description=long_description,
 	version='0.1.0',
 	url='https://github.com/ammojamo/prune-ebs-snapshots',
 	author='James Watmuff',
@@ -16,7 +22,6 @@ setup(
 		'Programming Language :: Python :: 2',
 		'Programming Language :: Python :: 3'
 	],
-	packages=['prune-ebs-snapshots'],
 	install_requires=[
 		'boto3>=1.4.4',
 		'pytz>=2017.2',
@@ -24,7 +29,7 @@ setup(
 	],
 	entry_points={
 		'console_scripts': [
-			'prune-ebs-snapshots=prune-ebs-snapshots.main:main'
+			'prune-ebs-snapshots = prune_ebs_snapshots:main'
 		]
 	}
 )
