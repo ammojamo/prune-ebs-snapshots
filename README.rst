@@ -32,9 +32,9 @@ Usage
 
 Always use the ``--help`` option to see the most up-to-date options available.
 
-Basic usage is::
+Basic usage is:
 
-prune-ebs-snapshots [options] volume_id tag_name tag_value
+``prune-ebs-snapshots [options] volume_id tag_name tag_value``
 
 ``volume_id`` specifies which EBS volume to prune snapshots for
 
