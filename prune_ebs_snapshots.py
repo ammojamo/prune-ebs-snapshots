@@ -118,8 +118,8 @@ def main():
 	if args.monthly != None:
 		update_snapshots(snapshots_to_keep, snapshots, start_of_month, now - relativedelta(months = args.monthly), now)
 
-    if args.yearly != None:
-            update_snapshots(snapshots_to_keep, snapshots, start_of_year, now - relativedelta(years = args.yearly), now)
+	if args.yearly != None:
+		update_snapshots(snapshots_to_keep, snapshots, start_of_year, now - relativedelta(years = args.yearly), now)
 
 	snapshots_to_delete = sorted(set(snapshots) - snapshots_to_keep)
 
